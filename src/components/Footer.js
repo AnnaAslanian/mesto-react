@@ -1,7 +1,6 @@
-import React from "react"
+import React from "react";
 
-
-function Footer () {
+function Footer() {
     return (
         <div className="footer">
           <p className="footer__copyright">© 2023. Асланян Анна</p>
@@ -9,4 +8,4 @@ function Footer () {
     )
 }
 
-export default Footer;
+export default Footer
