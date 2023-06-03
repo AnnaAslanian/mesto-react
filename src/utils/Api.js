@@ -8,9 +8,9 @@ class Api {
     return fetch(this._url + "/cards", {
       method: "GET",
       headers: this._headers
-    }).then((res) => this._response(res))
+    }).then((res) => this._getResponse(res))
   }
-  _response(res) {
+  _getResponse(res) {
     if (res.ok) {
       return res.json()
     }
@@ -20,7 +20,7 @@ class Api {
     return fetch(this._url + "/users/me", {
       method: "GET",
       headers: this._headers
-    }).then((res) => this._response(res))
+    }).then((res) => this._getResponse(res))
   }
   getEditUser(data) {
     return fetch(this._url + "/users/me", {
@@ -30,7 +30,7 @@ class Api {
         name: data.name,
         about: data.about
       })
-    }).then((res) => this._response(res))
+    }).then((res) => this._getResponse(res))
   }
   getEditAvatar(link) {
     return fetch(this._url + "/users/me/avatar", {
@@ -39,7 +39,7 @@ class Api {
       body: JSON.stringify({
         avatar: link.avatar
       })
-    }).then((res) => this._response(res))
+    }).then((res) => this._getResponse(res))
   }
 
   getAddCard(data) {
@@ -50,25 +50,25 @@ class Api {
         name: data.name,
         link: data.link
       })
-    }).then((res) => this._response(res))
+    }).then((res) => this._getResponse(res))
   }
   deleteCards(cardId) {
     return fetch(this._url + "/cards/" + cardId, {
       method: "DELETE",
       headers: this._headers
-    }).then((res) => this._response(res))
+    }).then((res) => this._getResponse(res))
   }
   deleteLike(cardId) {
     return fetch(this._url + "/cards/" + cardId + "/likes", {
       method: "DELETE",
       headers: this._headers
-    }).then((res) => this._response(res))
+    }).then((res) => this._getResponse(res))
   }
   addLike(cardId) {
     return fetch(this._url + "/cards/" + cardId + "/likes", {
       method: "PUT",
       headers: this._headers
-    }).then((res) => this._response(res))
+    }).then((res) => this._getResponse(res))
   }
   changeLikeCardStatus(cardId, isLiked) {
     if (isLiked) {
